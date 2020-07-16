@@ -43,4 +43,25 @@ describe('cmd', () => {
     expect(outputArray).to.have.length(itemsLength);
     outputArray.map(object => expect(object).to.have.all.keys('key1', 'key2'));
   });
+  it('make json-schema-faker-0.5 to add chance and fake', () => {
+    const itemLength = 29;
+    // eslint-disable-next-line max-len
+    execSync(`${path.resolve(__dirname, '../../../cmd.js')} ${path.resolve(__dirname, '../data/schema_utc.json')} ${outputPath} ${itemLength}`);
+  });
+  // eslint-disable-next-line func-names
+  it('make json-schema-faker-0.5 to inner reference', function (done) {
+    this.timeout(5000);
+    const itemLength = 40;
+    // eslint-disable-next-line max-len
+    execSync(`${path.resolve(__dirname, '../../../cmd.js')} ${path.resolve(__dirname, '../data/innerReference.json')} ${outputPath} ${itemLength}`);
+    done();
+  });
+  // eslint-disable-next-line mocha/no-identical-title,func-names
+  it('make json-schema-faker-0.5 to faker json', function (done) {
+    this.timeout(5000);
+    const itemLength = 29;
+    // eslint-disable-next-line max-len
+    execSync(`${path.resolve(__dirname, '../../../cmd.js')} ${path.resolve(__dirname, '../data/faker-arry.json')} ${outputPath} ${itemLength}`);
+    done();
+  });
 });

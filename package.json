@@ -1,10 +1,10 @@
 {
   "name": "json-schema-faker-cli",
-  "version": "2.0.9",
+  "version": "2.0.10",
   "description": "cli for json-schema-faker",
   "scripts": {
     "lint": "eslint app *.js",
-    "test": "mocha --recursive app/tests"
+    "test": "mocha --recursive app/tests --timeout 5000"
   },
   "repository": {
     "type": "git",
@@ -23,8 +23,10 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "json-schema-faker": "^0.4.7",
+    "json-schema-faker": "^0.5.0-rcv.30",
     "jsonfile": "^5.0.0",
+    "chance": "^1.1.7",
+    "faker": "^4.1.0",
     "lodash": "^4.17.15"
   },
   "devDependencies": {

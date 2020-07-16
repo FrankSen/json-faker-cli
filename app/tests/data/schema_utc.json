@@ -1,0 +1,64 @@
+{
+  "type": "object",
+  "properties": {
+    "userId": {
+      "type": "string",
+      "chance": "guid"
+    },
+    "emailAddr": {
+      "type": "string",
+      "chance": {
+        "email": {
+          "domain": "fake.com"
+        }
+      },
+      "pattern": ".+@fake.com"
+    },
+    "date_time": {
+      "type": "string",
+      "chance": {
+        "date": {
+          "string": "true"
+        }
+      }
+    },
+    "date_times": {
+      "type": "string",
+      "chance": {
+        "hammertime": {}
+      }
+    },
+    "utc_date": {
+      "type": "string",
+      "chance": {
+        "utcdate": {}
+      }
+    },
+    "op_ts": {
+      "type": "string",
+      "chance": {
+        "date": {
+		  "string":true,
+		  "op_ts": true
+		}
+      }
+    },
+    "current_ts": {
+      "chance": {
+        "date": {
+		  "string":true,
+		  "utcformats": true
+		}
+      }
+    }
+  },
+  "required": [
+    "userId",
+    "emailAddr",
+    "date_time",
+    "date_times",
+    "utc_date",
+    "op_ts",
+    "current_ts"
+  ]
+}

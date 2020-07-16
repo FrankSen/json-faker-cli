@@ -1045,16 +1045,15 @@ js-yaml@3.13.1, js-yaml@^3.13.1:
     argparse "^1.0.7"
     esprima "^4.0.0"
 
-json-schema-faker@^0.4.7:
+json-schema-faker@^0.5.0-rcv.30:
   version "0.4.7"
-  resolved "https://registry.npmjs.org/json-schema-faker/-/json-schema-faker-0.4.7.tgz#2dcc59f6f8be3f0f3f0ec0c654dbc5217c5ebbf5"
-  integrity sha512-xB1OVebUsCxW1BWVGFhRL0RHTdOz0js13CAp7OOXp5/s02wwxj+K9/QGK/9918+CKj7qpeqVZjMpGgmVsOTvmQ==
+  resolved "https://registry.npmjs.org/json-schema-faker/-/json-schema-faker-0.5.0-rcv.30.tgz#d181f115119d2bf4f03c823c540f07ed02a62c71"
+  integrity sha512-tgew5w51YBfYlUNVgyVuqvZlXIquvh+DJt696OQau+yyJcM15DteYNfhuAdmV5ijRskNWO+ONvcxiuCVLehGmw==
   dependencies:
-    chance "^1.0.11"
-    deref "^0.7.0"
-    faker "^4.1.0"
-    randexp "^0.4.6"
-    tslib "^1.8.0"
+    json-schema-ref-parser: "^6.1.0"
+    jsonpath-plus: "^3.0.0"
+    randexp: "^0.5.3"
+
 
 json-schema-traverse@^0.4.1:
   version "0.4.1"

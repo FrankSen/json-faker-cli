@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "cash": {
+      "type": "string",
+      "faker": {
+        "finance.amount": [
+          100.1,
+          10000,
+          3,
+          "#"
+        ]
+      }
+    },
+    "birthday": {
+      "type": "string",
+      "chance": {
+        "birthday": {
+          "string": true
+        }
+      }
+    }
+  },
+  "required": [
+    "cash",
+    "birthday"
+  ]
+}

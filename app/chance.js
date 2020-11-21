@@ -2063,22 +2063,59 @@
                 minute: this.minute(),
                 second: this.second(),
                 millisecond: this.millisecond(),
-                american: true,
+                american: false,
+                utcformats: false,
+                op_ts: false,
                 string: false
             });
 
             date = new Date(options.year, options.month, options.day, options.hour, options.minute, options.second, options.millisecond);
         }
 
+        current_date = new Date();
+
         if (options.american) {
             // Adding 1 to the month is necessary because Date() 0-indexes
             // months but not day for some odd reason.
             date_string = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
+        } else if (options.utcformats) {
+            date_string = current_date.toISOString();
+        } else if (options.op_ts) {
+            var sep_line = "-";
+            var sep_dote = ":";
+            var month = current_date.getMonth() + 1 ;
+            var strDate = current_date.getDate();
+            var hours = current_date.getHours();
+            var minutes = current_date.getMinutes();
+            var seconds = current_date.getSeconds();
+            if (month >= 1 && month <= 9) {
+                month = "0" + month;
+            }
+            if (strDate >= 0 && strDate <= 9) {
+                strDate = "0" + strDate;
+            }
+            if(hours >= 0 && hours <= 9){
+                hours = "0" + hours;
+            }
+            if(minutes >= 0 && minutes <= 9){
+                minutes = "0" + minutes;
+            }
+            if (seconds >= 0 && seconds <= 9) {
+                seconds = "0" + seconds;
+            }
+            date_string = (current_date.getFullYear()) + sep_line + month + sep_line + strDate + " " +
+                hours + sep_dote + minutes + sep_dote + seconds + "." + current_date.getMilliseconds();
         } else {
             date_string = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
         }
 
         return options.string ? date_string : date;
+    };
+
+    //get UTC date
+    Chance.prototype.utcdate = function (options){
+        date = new Date();
+        return  date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
     };
 
     Chance.prototype.hammertime = function (options) {

@@ -2108,7 +2108,7 @@
         } else {
             date_string = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
         }
-
+        this.natural({min:0, max:100});
         return options.string ? date_string : date;
     };
 
@@ -2116,6 +2116,19 @@
     Chance.prototype.utcdate = function (options){
         date = new Date();
         return  date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+    };
+
+    //get applyno maybe
+    Chance.prototype.applyno = function (options) {
+        options = options || {};
+        applyno = [];
+        var front_code = "B"
+            ,meddile_code = !!options.meddile_code ? options.meddile_code : this.pickone(['M', 'K', 'L'])
+            ,end_code = !!options.end_code ? options.end_code : this.pickone(['L', 'M'])
+            ,max_value = !!options.max ? options.max : 9123452364543
+            ,min_value = !!options.min ? options.min : 8241235562332
+        applyno = applyno.concat(front_code, meddile_code, end_code, this.natural({min:min_value, max:max_value})).join("");
+        return applyno.toLocaleString();
     };
 
     Chance.prototype.hammertime = function (options) {

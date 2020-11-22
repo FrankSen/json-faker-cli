@@ -1,0 +1,93 @@
+##造数分类
+# 1. 财务数字
+"cash": {
+      "type": "string",
+      "faker": {
+        "finance.amount": [
+          100.1,
+          10000,
+          3,
+          "#"
+        ]
+      }
+    }
+# 2. GUID
+{
+  "type": "string",
+  "chance": "guid"
+}
+
+# 3.随机对象
+ "birthday": {
+      "type": "object",
+      "chance": {
+        "cc_types": {}
+      }
+    }
+# 4.随机数字
+ "random_num": {
+      "type": "object",
+      "faker": {
+        "fake": "{{random.number}}"
+      }
+    }
+# 5.创建指定位的数字
+"card": {
+      "type": "object",
+      "faker": {
+        "finance.account": [
+          20
+        ]
+      }
+    }
+# 6. 创建省略的数字
+"card": {
+      "type": "object",
+      "faker": {
+        "finance.mask": [
+          10,
+          false,
+          false
+        ]
+      }
+    }
+# 7. 创建指定范围的日期
+"change": {
+      "type": "string",
+      "faker": {
+        "date.between": [
+          "2019-01-01",
+          "2020-01-01"
+        ]
+      }
+    }
+# 8. 支持Array
+{
+  "type": "array",
+  "items": [
+    {
+      "type": "string",
+      "format": "date-time"
+    },
+    {
+      "type": "string",
+      "format": "email"
+    },
+    {
+      "type": "string",
+      "format": "hostname"
+    },
+    {
+      "type": "string",
+      "format": "ipv4"
+    },
+    {
+      "type": "string",
+      "format": "ipv6"
+    },
+    {
+      "type": "string",
+      "format": "uri"
+    }
+  ]
+}
